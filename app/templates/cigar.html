@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="d-flex justify-content-md-center">
+        <h1>This is my Top 5 Cigars page!!!</h1>
+    </div>
+    <div class="d-flex justify-content-md-center">
+        <img src="../static/images/cigars.jpg" alt="">
+    </div>
+    <div class="d-flex justify-content-md-center">
+        <ol>
+            {% for cig in cigar %}
+                <li>
+                    <div class="justify-content-between">
+                        <span class="d-flex flex">{{ cig.cigar }}</span>
+                        <span class="d-flex flex-row-reverse"><img src="{{ url_for('static', filename=cig.image) }}"></span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+{% endblock %}
